@@ -1,0 +1,17 @@
+language: python
+python:
+  - 3.5
+before_install:
+  - pip install -r requirements.txt
+  - pip install -r requirements_test.txt
+install:
+  - python setup.py install
+script:
+  - py.test --cov=. --pep8 tests/
+after_success:
+  - codecov
+notifications:
+  email: false
+  slack:
+    rooms:
+      secure: BSpA1Dp4bzzGQWp1nH6x4QvqPukh1VRnczYSd5gGpt/glg0ptYw2nAs8w/H/SOOG5HGOeipWCEdtrfBxz9YM9F8kcqpbzWS+l8CghqYwQlY2+QkZCz3DNeNXeR48yoZxyqnaikklQMxAOfUCQK8tHPwWOLhVWcy5EZsT920uMVyQSE8HJpKKLv4KgkCCQ17XFGcixargjT9hSnmKSbuCASpHlQAOUAfFF8j+ENYO2X0aIvtRLEY66tBMrcymbEA22wH1Mg1WOqflryrtf/NQO12CEiLlVsa72sAOz9ie06HaDyN3BncQOJr52RbdklUY4FgxK++REhmowiBSjC8Zy97utvd9hVHoObRW06oXB38/S8zdJQgQdD34DRxNSYmaKef+WBjzVrVBPEl/2wpqHonLZZtQZbbyCHdjjFDGQ4BF9X9N3pEhZHKMOJ8hIDJVljzqyvxnK1k2Zh8cotw8n3Rj305LuLlrl2OLrqlAazSkTajdTAr0LZbZFBOT78WvtDOp6/0SCHq0yvKOV1dx6OguBNM/M29uc3uLfaWHU8oLpguHdr4noETVRInSkowQ/9GcdF4/t+d07/JIM0UW7ThLZqWQTun0IZF/HnOqwlPp+hmFD6N4b2a8JVaT80w/xRYHahvqcCZQAu+aXZeUKDUSIucDjhwamWuyZtRZE+I=
