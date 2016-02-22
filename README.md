@@ -2,7 +2,7 @@
 
 [![License][license-badge]][license]
 [![CI][ci-badge]][ci]
-[![Coverage][coverage]][coverage-badge]
+[![Coverage][coverage-badge]][coverage]
 
 A server and tools for K-best word completion.
 
