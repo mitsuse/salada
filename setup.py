@@ -24,4 +24,9 @@ setup(
         exclude=[
         ]
     ),
+    entry_points={
+        'console_scripts': [
+            'salada = salada.command:main',
+        ],
+    },
 )
