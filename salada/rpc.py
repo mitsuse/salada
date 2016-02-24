@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from mprpc import RPCServer
+import mprpc as __mprpc
 
 
-class Service(RPCServer):
+class Service(__mprpc.RPCServer):
     '''
     `Service` is MessagePack-RPC service for K-best word completion
     '''
