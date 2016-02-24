@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from mprpc import RPCServer
+import mprpc as __mprpc
 
 
-class Service(RPCServer):
+class Service(__mprpc.RPCServer):
     '''
     `Service` is MessagePack-RPC service for K-best word completion
     '''
@@ -20,8 +20,6 @@ class Service(RPCServer):
         `segment` the given `text` into words by using `segmenter`.
         '''
 
-        from salada.rpc.response import encode_segment
-
         segments = self.__segmenter.segment(text)
         response = [encode_segment(s) for s in segments]
 
@@ -32,9 +30,24 @@ class Service(RPCServer):
         `complete` the next word starting with `prefix` by using `context`.
         '''
 
-        from salada.rpc.response import encode_completion
-
         completions = self.__completer.complete(context, prefix)
         response = [encode_completion(c) for c in completions]
 
         return response
+
+
+def encode_segment(segment):
+    encoded = {
+        'surface': segment.surface,
+        'is_headless': segment.is_headless,
+        'is_tailless': segment.is_tailless,
+    }
+    return encoded
+
+
+def encode_completion(completion):
+    encoded = {
+        'candidate': completion.candidate,
+        'score': completion.score,
+    }
+    return encoded

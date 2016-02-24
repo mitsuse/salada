@@ -7,7 +7,7 @@ before_install:
 install:
   - python setup.py install
 script:
-  - py.test -v --pep8 salada/ tests/ example/
+  - py.test -v --pep8 salada/ tests/ examples/
 notifications:
   email: false
   slack:
