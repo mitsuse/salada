@@ -46,10 +46,5 @@ def serve(port):
     server.serve_forever()
 
 
-@main.command()
-def request():
-    '''Predict next words with the given prefix.'''
-
-
 if __name__ == '__main__':
     main()
