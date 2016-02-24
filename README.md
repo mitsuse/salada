@@ -2,7 +2,6 @@
 
 [![License][license-badge]][license]
 [![CI][ci-badge]][ci]
-[![Coverage][coverage-badge]][coverage]
 
 A server and tools for K-best word completion.
 
@@ -15,5 +14,3 @@ Please read [LICENSE][license].
 [license]: LICENSE
 [ci-badge]: https://img.shields.io/travis/mitsuse/salada.svg?style=flat-square
 [ci]: https://travis-ci.org/mitsuse/salada/builds
-[coverage-badge]: https://img.shields.io/codecov/c/github/mitsuse/salada.svg?style=flat-square
-[coverage]: https://codecov.io/github/mitsuse/salada
