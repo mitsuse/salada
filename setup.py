@@ -22,7 +22,7 @@ setup(
     keywords='language word completion server',
     packages=find_packages(
         exclude=[
-            'example',
+            'examples',
         ]
     ),
     entry_points={
