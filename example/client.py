@@ -10,8 +10,22 @@ def main():
 
 
 @main.command()
-def segment():
+@click.option(
+    '--port', type=int,
+    default=9000, show_default=True,
+    help='The port number used by the server.',
+)
+@click.option(
+    '--text', type=str, required=True,
+    help='The input string to be segmented.',
+)
+def segment(port, text):
     '''Send request for word segmentation.'''
+
+    from mprpc import RPCClient
+
+    client = RPCClient('localhost', port)
+    print(client.call('segment', text))
 
 
 @main.command()
