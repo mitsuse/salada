@@ -16,7 +16,7 @@ class Default(object):
 
         segments = [
             language.Segment(
-                s, i==0, i==last_index,
+                s, i == 0, i == last_index,
             ) for i, s in enumerate(sequence)
         ]
 
