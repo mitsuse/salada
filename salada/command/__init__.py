@@ -35,10 +35,10 @@ def serve(port):
 
     from gevent.server import StreamServer
     from salada import rpc
+    from salada import segmenter
 
-    # TODO: Specify the segmenter and the completer by command-line arguments.
     service = rpc.Service(
-        segmenter=None,
+        segmenter=segmenter.Default(),
         completer=None,
     )
 
