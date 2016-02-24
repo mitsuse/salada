@@ -5,7 +5,8 @@
 def encode_segment(segment):
     encoded = {
         'surface': segment.surface,
-        'state': segment.state,
+        'is_headless': segment.is_headless,
+        'is_tailless': segment.is_tailless,
     }
     return encoded
 
