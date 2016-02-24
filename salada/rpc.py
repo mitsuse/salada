@@ -20,8 +20,6 @@ class Service(__mprpc.RPCServer):
         `segment` the given `text` into words by using `segmenter`.
         '''
 
-        from salada.rpc.response import encode_segment
-
         segments = self.__segmenter.segment(text)
         response = [encode_segment(s) for s in segments]
 
@@ -31,8 +29,6 @@ class Service(__mprpc.RPCServer):
         '''
         `complete` the next word starting with `prefix` by using `context`.
         '''
-
-        from salada.rpc.response import encode_completion
 
         completions = self.__completer.complete(context, prefix)
         response = [encode_completion(c) for c in completions]
