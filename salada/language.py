@@ -19,11 +19,11 @@ class Segment(object):
         )
 
     def __repr__(self):
-        return '<{} surface={!r}, headless={!r}, tailless={!r}>'.format(
+        return '<{} {}{!s}{}>'.format(
             type(self).__name__,
+            '...' if self.is_headless else '',
             self.surface,
-            self.is_headless,
-            self.is_tailless,
+            '...' if self.is_tailless else '',
         )
 
     @property
