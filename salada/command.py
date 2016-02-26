@@ -10,11 +10,6 @@ def main():
 
 
 @main.command()
-def gather():
-    '''Extract comments from the given source files.'''
-
-
-@main.command()
 def prepare():
     '''Segment strings into tokens'''
 
