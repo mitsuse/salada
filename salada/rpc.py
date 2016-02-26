@@ -36,6 +36,27 @@ class Service(__mprpc.RPCServer):
         return response
 
 
+class Client(object):
+    def __init__(self, port):
+        self.__port = port
+
+    def segment(self, text):
+        from mprpc import RPCClient
+
+        client = RPCClient('localhost', self.__port)
+        response = client.call('segment', text)
+
+        return [decode_segment(r) for r in response]
+
+    def complete(self, context, prefix):
+        from mprpc import RPCClient
+
+        client = RPCClient('localhost', self.__port)
+        response = client.call('complete', context, prefix)
+
+        return [decode_completion(r) for r in response]
+
+
 def encode_segment(segment):
     encoded = {
         'surface': segment.surface,
@@ -51,3 +72,22 @@ def encode_completion(completion):
         'score': completion.score,
     }
     return encoded
+
+
+def decode_segment(segment):
+    from salada import language
+    return language.Segment(
+        segment['surface'],
+        segment['is_headless'],
+        segment['is_tailless'],
+    )
+
+
+def decode_completion(segment):
+    # TODO: Implement.
+    pass
+
+
+class DecodeError(object):
+    def __init__(self):
+        pass

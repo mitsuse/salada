@@ -22,10 +22,10 @@ def main():
 def segment(port, text):
     '''Send request for word segmentation.'''
 
-    from mprpc import RPCClient
+    from salada import rpc
 
-    client = RPCClient('localhost', port)
-    print(client.call('segment', text))
+    client = rpc.Client(port)
+    print(client.segment(text))
 
 
 @main.command()
