@@ -5,7 +5,7 @@ from salada import language
 
 
 class TestSegment:
-    def equals_to_other_which_has_same_proporties(self):
+    def test_equals_to_other_which_has_same_proporties(self):
         a = language.Segment('foo', True, False)
         b = language.Segment('foo', True, False)
         assert a == b and b == a
