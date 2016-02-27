@@ -5,7 +5,7 @@ from salada import completer
 
 
 class TestCompletion:
-    def equals_to_other_which_has_same_proporties(self):
+    def test_equals_to_other_which_has_same_proporties(self):
         a = completer.Completion('foo', 10)
         b = completer.Completion('foo', 10)
         assert a == b and b == a
